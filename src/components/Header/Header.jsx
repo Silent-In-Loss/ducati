@@ -2,8 +2,13 @@ import React, { useState, useRef, useEffect } from 'react';
 import s from './Header.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import { useAppContext } from '../../context';
 
 const Header = () => {
+
+  const {isCard1, isCard2, toggleOpen1, toggleOpen2} = useAppContext()
+
+
   const [isActive, setIsActive] = useState(false);
   const [prevSlideImage, setPrevSlideImage] = useState('/moto2.png'); 
   const swiperRef = useRef(null);
@@ -89,7 +94,7 @@ const Header = () => {
                     DUCATI
                     <img src="/moto1.png" alt="moto" />
                   </h1>
-                  <button>Read more</button>
+                  <button onClick={toggleOpen1}>Read more</button>
                 </div>
 
                 <div className={s.inner}>
@@ -117,7 +122,7 @@ const Header = () => {
                     DUCATI
                     <img src="/moto2.png" alt="moto" />
                   </h1>
-                  <button>Read more</button>
+                  <button onClick={toggleOpen2}>Read more</button>
                 </div>
 
                 <div className={s.inner}>
